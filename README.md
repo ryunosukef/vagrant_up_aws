@@ -61,8 +61,51 @@ end
 ```
 
 
+vagrant up
+------------
+おりゃー
+```
+$ export AWS_AMI=ami-xxx; export AWS_ACCESS_KEY_ID=yyy; export AWS_SECRET_ACCESS_KEY=zzz; vagrant up --provider=aws
+```
+
+きたーw
+```
+[default] Running provisioner: chef_solo...
+Generating chef JSON and uploading...
+Running chef-solo...
+[2013-11-18T02:40:06-05:00] INFO: Forking chef instance to converge...
+[2013-11-18T02:40:06-05:00] INFO: *** Chef 11.8.0 ***
+[2013-11-18T02:40:06-05:00] INFO: Chef-client pid: 1869
+[2013-11-18T02:40:13-05:00] INFO: Setting the run_list to "recipe[sandbox]" from JSON
+[2013-11-18T02:40:13-05:00] INFO: Run List is [recipe[sandbox]]
+[2013-11-18T02:40:13-05:00] INFO: Run List expands to [sandbox]
+[2013-11-18T02:40:13-05:00] INFO: Starting Chef Run for ip-10-134-208-145.ap-northeast-1.compute.internal
+[2013-11-18T02:40:13-05:00] INFO: Running start handlers
+[2013-11-18T02:40:13-05:00] INFO: Start handlers complete.
+[2013-11-18T02:40:13-05:00] INFO: template[/tmp/vagrant_test.txt] created file /tmp/vagrant_test.txt
+[2013-11-18T02:40:13-05:00] INFO: template[/tmp/vagrant_test.txt] updated file contents /tmp/vagrant_test.txt
+[2013-11-18T02:40:13-05:00] INFO: template[/tmp/vagrant_test.txt] mode changed to 644
+[2013-11-18T02:40:13-05:00] INFO: Chef Run complete in 0.282835577 seconds
+[2013-11-18T02:40:13-05:00] INFO: Running report handlers
+[2013-11-18T02:40:13-05:00] INFO: Report handlers complete
+[2013-11-18T02:40:06-05:00] INFO: Forking chef instance to converge...
+```
+
+sshして、レシピが適用されたことを確認する
+```
+$ vagrant ssh
+[ec2-user@xxx]$ cat /tmp/vagrant_test.txt 
+ami-9f9ef99e
+t1.micro
+ap-northeast-1a
+
+[ec2-user@xxx]$ exit
+$
+```
 
 使い終わったら捨てる
 -------------
-`$vagrant destroy`
+```
+$ vagrant destroy
+```
 
