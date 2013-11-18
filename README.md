@@ -23,11 +23,6 @@ http://d.hatena.ne.jp/ksoeda/20130502/1367507074
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY
 
-
-    
-    $ export AWS_AMI=ami-xxx; export AWS_ACCESS_KEY_ID=yyy; export AWS_SECRET_ACCESS_KEY=zzz; vagrant up --provider=aws
-    
-    
     
 chef 動かない
 ------------
